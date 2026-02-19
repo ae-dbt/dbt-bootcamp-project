@@ -38,5 +38,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbt-bootcamp-project:
     +materialized: view
+    src:
+      +materialized: ephemeral
     dim:
       +materialized: table
