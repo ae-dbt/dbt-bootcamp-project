@@ -1,4 +1,4 @@
-{{config(schema ='dim', tags = ["dimension"], materialized='table')}} 
+{{config(schema ='dim', tags = ["dimension"], materialized='view')}} 
 
 WITH src_hosts AS (
     SELECT * FROM {{ ref('src_hosts') }}

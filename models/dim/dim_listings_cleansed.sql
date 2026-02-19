@@ -1,4 +1,4 @@
-{{config(schema ='dim', tags = ["dimension"])}} 
+{{config(schema ='dim', tags = ["dimension"], materialized = 'view')}} 
 
 WITH src_listings AS (
     SELECT * FROM {{ ref('src_listings') }}
