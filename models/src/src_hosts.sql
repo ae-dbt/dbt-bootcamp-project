@@ -2,7 +2,7 @@
 
 WITH raw_hosts AS (
     SELECT *
-    FROM `dbtbootcamp-project.raw_data_us.raw_hosts`
+    FROM {{ source('dbtbootcamp-project', 'hosts') }}
 )
 SELECT
     id AS host_id,

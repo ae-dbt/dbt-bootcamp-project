@@ -2,7 +2,7 @@
 
 WITH raw_reviews AS (
     SELECT *
-    FROM `dbtbootcamp-project.raw_data_us.raw_reviews`
+    FROM {{ source('dbtbootcamp-project', 'reviews') }}
 )
 SELECT
     listing_id,

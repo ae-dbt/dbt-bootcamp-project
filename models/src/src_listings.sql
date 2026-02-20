@@ -1,7 +1,7 @@
 {{ config(schema ='src', tags = ["staging"])}}
 
 WITH raw_listings AS (
-    SELECT * FROM `dbtbootcamp-project.raw_data_us.raw_listings`
+    SELECT * FROM {{ source('dbtbootcamp-project', 'listings') }}
 )
 SELECT 
 	id AS listing_id,
