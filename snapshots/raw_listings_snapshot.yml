@@ -1,0 +1,10 @@
+snapshots:
+  - name: scd_raw_listings
+    relation: source('dbtbootcamp-project', 'listings')
+    config:
+      unique_key: id
+      strategy: timestamp
+      updated_at: updated_at
+      hard_deletes: invalidate
+      schema: scd
+      tags: ["scd"]
