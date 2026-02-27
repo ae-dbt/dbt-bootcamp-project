@@ -2,9 +2,10 @@
 
 WITH src_reviews AS (
   SELECT * FROM {{ ref('src_reviews') }}
+  QUALIFY ROW_NUMBER()OVER(PARTITION BY listing_id, review_date, reviewer_name, review_text ORDER BY review_sentiment DESC) = 1
 )
 SELECT 
---   {{ dbt_utils.generate_surrogate_key(['listing_id', 'review_date', 'reviewer_name', 'review_text']) }} as review_id,
+  {{ dbt_utils.generate_surrogate_key(['listing_id', 'review_date', 'reviewer_name', 'review_text']) }} as review_id,
   *
 FROM src_reviews
 WHERE review_text is not null
